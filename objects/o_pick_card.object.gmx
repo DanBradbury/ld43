@@ -25,8 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>s=1;
+            <string>options = pack("SPAWN AAs", "SPAWN BIGGIE", "GAIN 1 ENERGY");
+var i = array_length_1d(options);
+//alarm[0] = 1;
+while(--i &gt;= 0) {
+  var t = 0;
+  t = instance_create((room_width/2-250)+(i*175),room_height/2, o_card);
+  t.card_title = options[i];
+}
+instance_destroy();
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (live_call()) return live_result;</string>
           </argument>
         </arguments>
       </action>
@@ -48,10 +78,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (live_call()) return live_result;
-draw_set_color(c_red);
-draw_text(0,1, "TTTTTTT");
-</string>
+            <string>///DRAW_EVENT CODE
+if (live_call()) return live_result;
+var i = array_length_1d(options);
+while(--i &gt;= 0) {
+  draw_card((room_width/2-250)+(i*175),room_height/2, options[i]);
+  /*draw_sprite(s_card1, 0, (room_width/2-250)+(i*175),room_height/2);*/
+  /*draw_set_color(c_white);*/
+  /*draw_text((room_width/2-250)+(i*175),room_height/2, options[i]);*/
+}</string>
           </argument>
         </arguments>
       </action>
