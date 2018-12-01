@@ -3,7 +3,8 @@ if (live_call()) return live_result;
 with(o_deck_select) {
   num_cards++;
   if(num_cards == 7) {
-    show_message("picked all 7 cards");
+    /*show_message("picked all 7 cards");*/
+    return 0;
   } else {
     /*var options = o_referee.deck_choices[num_cards-1]*/
     /*var i = array_length_1d(options);*/

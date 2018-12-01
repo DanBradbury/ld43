@@ -1,6 +1,6 @@
 ///scr_enemy_play_card(ARG_INFO)
 //XXX: only being used by the enemy atm
-show_message("enemy trying to play a card");
+/*show_message("enemy trying to play a card");*/
 with(argument[0]) {
   // subtract energy
   // other player related thigns
