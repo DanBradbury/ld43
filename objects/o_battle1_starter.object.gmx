@@ -25,15 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//options = pack("SPAWN AAs", "SPAWN BIGGIE", "GAIN 1 ENERGY");
-options = o_referee.deck_choices[o_deck_select.num_cards];
-var i = array_length_1d(options);
-while(--i &gt;= 0) {
-  var t = 0;
-  t = instance_create((room_width/2-250)+(i*175),room_height/2, o_card);
-  t.card_title = options[i];
-}
-instance_destroy();</string>
+            <string>instance_create(x,y, o_level1_enemy);
+scr_select_hand();</string>
           </argument>
         </arguments>
       </action>
