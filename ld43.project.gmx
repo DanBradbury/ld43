@@ -21,6 +21,7 @@
     <script>scripts\scr_display_selected_cards.gml</script>
     <script>scripts\draw_card.gml</script>
     <script>scripts\do_nothing_card_click.gml</script>
+    <script>scripts\scr_go_to_next_room_click.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\o_deck_select</object>
@@ -31,6 +32,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\r_start_screen</room>
+    <room>rooms\r_battle_room</room>
   </rooms>
   <constants number="1">
     <constant name="live_enabled">1</constant>

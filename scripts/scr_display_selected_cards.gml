@@ -5,7 +5,7 @@ with(o_referee) {
   for(i=0;i<ds_list_size(player_cards);i++) {
     t = instance_create((room_width/2-500)+(i*145),room_height/2, o_card);
     t.card_title = ds_list_find_value(player_cards, i);
-    t.click_behavior = pack(do_nothing_card_click, t.card_title);
+    t.click_behavior = pack(scr_go_to_next_room_click, t.card_title);
   }
 }
 
