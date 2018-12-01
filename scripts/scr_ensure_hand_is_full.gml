@@ -4,7 +4,7 @@ with(o_referee) {
   if(ds_list_size(current_hand) == 3) {
     return 0;
   } else {
-    while(ds_list_size(current_hand) != 3) {
+    while(ds_list_size(current_hand) < 3) {
       scr_add_card_to_hand();
     }
   }

@@ -193,10 +193,7 @@ for(q=0;q&lt;ds_list_size(current_hand);q++) {
   t_obj.x = (room_width/2-250)+(q*155);
   t_obj.y = room_height-200;
 }
-// TODO: make this cleaner w/ a sound / solid draw display
-while(ds_list_size(current_hand)&lt;3) {
-  scr_add_card_to_hand();
-}</string>
+scr_ensure_hand_is_full();</string>
 					</argument>
 				</arguments>
 			</action>
