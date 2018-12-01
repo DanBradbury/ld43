@@ -30,8 +30,9 @@ options = o_referee.deck_choices[o_deck_select.num_cards];
 var i = array_length_1d(options);
 while(--i &gt;= 0) {
   var t = 0;
-  t = instance_create((room_width/2-250)+(i*175),room_height/2, o_card);
-  t.card_title = options[i];
+  t = scr_create_card((room_width/2-250)+(i*175),room_height/2, options[i], scr_selected_card_for_deck);
+  /*t = instance_create((room_width/2-250)+(i*175),room_height/2, o_card);*/
+  /*t.card_title = options[i];*/
 }
 instance_destroy();</string>
           </argument>

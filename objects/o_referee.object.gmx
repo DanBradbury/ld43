@@ -33,7 +33,8 @@ enum game_state {
 }
 current_state = game_state.selecting_deck;
 
-player_energy = 3;
+max_energy = 3;
+player_energy = max_energy;
 current_turn = 0;
 start_player_turn = false;
 
@@ -149,7 +150,7 @@ switch(current_state) {
     draw_rectangle_colour(0, 0, room_width, 50, c_blue, selected_color, selected_color, selected_color, false);
     draw_set_color(c_white);
     draw_text(15, 15, "LIFE: 120/120");
-    draw_text(room_width-200, 15, "TURN ENERGY: 2/2");
+    draw_text(room_width-200, 15, "TURN ENERGY: "+string(player_energy)+"/"+string(max_energy));
     // XXX: DEBUG?
     if(true) {
       draw_set_color(c_blue);
@@ -193,7 +194,8 @@ for(q=0;q&lt;ds_list_size(current_hand);q++) {
   t_obj.x = (room_width/2-250)+(q*155);
   t_obj.y = room_height-200;
 }
-scr_ensure_hand_is_full();</string>
+scr_ensure_hand_is_full();
+player_energy = max_energy;</string>
 					</argument>
 				</arguments>
 			</action>

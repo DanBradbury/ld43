@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 turn_triggered = false;
-enemy_hand = pack("Spawn Minions", "Spawn Minions", "Spawn Minions");
+enemy_hand = pack("Shield", "Spawn Minions", "Shield", "Shield");
 max_hp = 100;
 current_hp = max_hp;</string>
           </argument>

@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 card_title = "NOTSETYET";
+energy_cost = -1;
 hovering = false;
-click_behavior = pack(scr_selected_card_for_deck, card_title);
+click_behavior = pack(do_nothing_card_click, card_title);
 </string>
           </argument>
         </arguments>
@@ -86,10 +87,15 @@ if(mouse_check_button_pressed(mb_left) &amp;&amp; hovering) {
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
-draw_card(x,y, card_title);
+// TODO: start passing self and see what happens.. should be much better... rule of 3s though trolol
+draw_card(x,y, card_title, energy_cost);
+var hover_color = c_yellow;
+if(energy_cost &gt; o_referee.player_energy) {
+  hover_color = c_red;
+}
 if(hovering) {
-  draw_rectangle_colour(x-1, y-1, x+sprite_width+1, y+sprite_height+1, c_yellow, c_yellow, c_yellow, c_yellow, true);
-  draw_rectangle_colour(x-2, y-2, x+sprite_width+2, y+sprite_height+2, c_yellow, c_yellow, c_yellow, c_yellow, true);
+  draw_rectangle_colour(x-1, y-1, x+sprite_width+1, y+sprite_height+1, hover_color, hover_color, hover_color, hover_color, true);
+  draw_rectangle_colour(x-2, y-2, x+sprite_width+2, y+sprite_height+2, hover_color, hover_color, hover_color, hover_color, true);
 }</string>
           </argument>
         </arguments>

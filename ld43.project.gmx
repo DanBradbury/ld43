@@ -34,6 +34,7 @@
 		<script>scripts\scr_spawn_minions.gml</script>
 		<script>scripts\scr_play_card_from_hand.gml</script>
 		<script>scripts\scr_ensure_hand_is_full.gml</script>
+		<script>scripts\scr_determine_cost_of_card.gml</script>
 	</scripts>
 	<objects name="objects">
 		<object>objects\o_deck_select</object>
