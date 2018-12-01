@@ -1,4 +1,6 @@
-///scr_play_card(ARG_INFO)
+///scr_enemy_play_card(ARG_INFO)
+//XXX: only being used by the enemy atm
+show_message("enemy trying to play a card");
 with(argument[0]) {
   // subtract energy
   // other player related thigns
@@ -7,9 +9,9 @@ with(argument[0]) {
 var script_to_run = scr_determine_card_action(argument[1]);
 
 script_execute(script_to_run);
-/*if(argument[1] == "Spawn Minions") {*/
-  /*scr_spawn_minions();*/
-/*}*/
 
 o_referee.current_turn++;
+with(argument[0]) {
+  turn_triggered = false;
+}
 

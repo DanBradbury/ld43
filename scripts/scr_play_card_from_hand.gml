@@ -2,6 +2,7 @@
 with(o_referee) {
   var i = ds_list_find_index(current_hand, argument[1]);
   ds_list_delete(current_hand, i);
+  current_turn++;
 }
 
 with(argument[0]) {

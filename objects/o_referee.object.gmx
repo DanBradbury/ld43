@@ -58,6 +58,18 @@ enemy_minion_spots = pack(
   pack(100, 150),
   pack(150, 150),
   pack(200, 150),
+  pack(250, 150),
+  pack(300, 150),
+  pack(350, 150),
+);
+num_friendly_minions = 0;
+friendly_minion_spots = pack(
+  pack(100, 550),
+  pack(150, 550),
+  pack(200, 550),
+  pack(250, 550),
+  pack(300, 550),
+  pack(350, 550),
 );</string>
           </argument>
         </arguments>
@@ -109,7 +121,7 @@ enemy_minion_spots = pack(
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 if(current_state == game_state.battling) {
-  if(!current_turn) {
+  if(is_enemy_turn) {
     draw_text(0, room_height-45, "ENEMYS TURN");
   } else {
     draw_text(0, room_height-45, "YOUR TURN");
@@ -127,7 +139,8 @@ switch(current_state) {
     var selected_color = c_blue;
     draw_rectangle_colour(0, 0, room_width, 50, c_blue, selected_color, selected_color, selected_color, false);
     draw_set_color(c_white);
-    draw_text(15, 15, "LIFE: ");
+    draw_text(15, 15, "LIFE: 120/120");
+    draw_text(room_width-200, 15, "TURN ENERGY: 2/2");
   default: break;
 }
 if(true) {

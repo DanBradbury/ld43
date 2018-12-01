@@ -52,7 +52,7 @@ current_hp = max_hp;</string>
           <argument>
             <kind>1</kind>
             <string>// XXX: should be revisted to select the best card for the play / follow a script
-scr_play_card(self, enemy_hand[0]);</string>
+scr_enemy_play_card(self, enemy_hand[0]);</string>
           </argument>
         </arguments>
       </action>
