@@ -52,16 +52,15 @@ num_cards = -1;</string>
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
-///STEP_EVENT CODE
 if(keyboard_check_pressed(vk_space)) {
   started_deck_selection = true;
-  check_to_spawn_more();
-  //instance_create(0,0, o_pick_card);
+  scr_check_to_spawn_more();
 }
 if(num_cards == 7 &amp;&amp; !display_selected_deck) {
   display_selected_deck = true;
-  display_selected_cards(); // actually creates all the instances
-}</string>
+  scr_display_selected_cards(); // actually creates all the instances
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -89,10 +88,7 @@ if(!started_deck_selection) {
   draw_text(0,1, "PRESS &lt; SPACE &gt; TO START DECK SELECTION");
 } else {
   draw_text(0,1, "NUMBER OF CARDS SELECTED: "+string(num_cards));
-}
-/*if(num_cards == 7) {*/
-  /*display_selected_cards();*/
-/*}*/</string>
+}</string>
           </argument>
         </arguments>
       </action>

@@ -28,7 +28,8 @@
             <string>if (live_call()) return live_result;
 card_title = "NOTSETYET";
 hovering = false;
-click_behavior = pack(selected_card, card_title);</string>
+click_behavior = pack(scr_selected_card_for_deck, card_title);
+</string>
           </argument>
         </arguments>
       </action>
@@ -58,8 +59,8 @@ if(mouse_x &gt; bbox_left &amp;&amp; mouse_x &lt; bbox_right &amp;&amp; mouse_y 
 }
 if(mouse_check_button_pressed(mb_left) &amp;&amp; hovering) {
   script_execute(click_behavior[0], card_title);
-  //selected_card(card_title);
-}</string>
+}
+</string>
           </argument>
         </arguments>
       </action>
