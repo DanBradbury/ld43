@@ -3,11 +3,27 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\GMLive</extension>
+    <extension index="1">extensions\GMLiveHelper</extension>
+    <extension index="2">extensions\netlog</extension>
+  </NewExtensions>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\s_card1</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\o_card1</object>
+    <object>objects\obj_gmlive</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\r_start_screen</room>
+  </rooms>
+  <constants number="1">
+    <constant name="live_enabled">1</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
