@@ -44,6 +44,7 @@
 		<object>objects\o_battle1_starter</object>
 		<object>objects\o_current_hand</object>
 		<object>objects\o_basic_minion</object>
+		<object>objects\o_action_notification</object>
 	</objects>
 	<rooms name="rooms">
 		<room>rooms\r_start_screen</room>

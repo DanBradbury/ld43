@@ -25,7 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>current_turn = 0;
+            <string>if (live_call()) return live_result;
+enum game_state {
+  selecting_deck = 0,
+  deck_selected= 1,
+  battling = 2
+}
+current_state = game_state.selecting_deck;
+
+player_energy = 3;
+current_turn = 0;
 
 current_hand = ds_list_create();
 current_pile = ds_list_create();
@@ -42,7 +51,14 @@ deck_choices = pack(
 );
 
 enemy_minions = ds_list_create();
-friendly_minions = ds_list_create();</string>
+friendly_minions = ds_list_create();
+
+num_enemy_minions = 0;
+enemy_minion_spots = pack(
+  pack(100, 150),
+  pack(150, 150),
+  pack(200, 150),
+);</string>
           </argument>
         </arguments>
       </action>
@@ -65,7 +81,7 @@ friendly_minions = ds_list_create();</string>
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
-/*if(keyboard_check_pressed(ord("r"))) {*/
+/*if(keyboard_check_pressed(ord("R"))) {*/
   /*room_restart();*/
 /*}*/</string>
           </argument>
@@ -92,11 +108,36 @@ friendly_minions = ds_list_create();</string>
             <string>if (live_call()) return live_result;
 draw_set_color(c_white);
 draw_set_halign(fa_left);
-if(!current_turn) {
-  draw_text(0, room_height-45, "ENEMYS TURN");
-} else {
-  draw_text(0, room_height-45, "YOUR TURN");
-}</string>
+if(current_state == game_state.battling) {
+  if(!current_turn) {
+    draw_text(0, room_height-45, "ENEMYS TURN");
+  } else {
+    draw_text(0, room_height-45, "YOUR TURN");
+  }
+}
+
+switch(current_state) {
+  case game_state.selecting_deck:
+    draw_text(0,20, "SELECTING DECK");
+    break;
+  case game_state.deck_selected:
+    draw_text(0,20, "TAKE A LOOK AT THAT DECK");
+    break;
+  case game_state.battling:
+    var selected_color = c_blue;
+    draw_rectangle_colour(0, 0, room_width, 50, c_blue, selected_color, selected_color, selected_color, false);
+    draw_set_color(c_white);
+    draw_text(15, 15, "LIFE: ");
+  default: break;
+}
+if(true) {
+  draw_text(0,100, "MOUSE (X,Y): ("+string(mouse_x)+","+string(mouse_y)+")");
+}
+
+
+/*if(current_state == game_state.selecting_deck) {*/
+  /*draw_text(0,20, "SELECTING DECK");*/
+/*}*/</string>
           </argument>
         </arguments>
       </action>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 turn_triggered = false;
-enemy_hand = pack("Spawn Minions");
+enemy_hand = pack("Spawn Minions", "Spawn Minions", "Spawn Minions");
 max_hp = 100;
 current_hp = max_hp;</string>
           </argument>
@@ -51,7 +51,8 @@ current_hp = max_hp;</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_play_card(self, enemy_hand[0]);</string>
+            <string>// XXX: should be revisted to select the best card for the play / follow a script
+scr_play_card(self, enemy_hand[0]);</string>
           </argument>
         </arguments>
       </action>
@@ -100,9 +101,9 @@ current_hp = max_hp;</string>
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
-draw_set_color(c_red);
+draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_text(room_width/2, 10, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));</string>
+draw_text(room_width/2, 80, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));</string>
           </argument>
         </arguments>
       </action>

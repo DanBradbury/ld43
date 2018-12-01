@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x,y, o_level1_enemy);
+            <string>o_referee.current_state = o_referee.game_state.battling;
+instance_create(x,y, o_level1_enemy);
 scr_select_hand();</string>
           </argument>
         </arguments>

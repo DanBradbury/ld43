@@ -7,5 +7,6 @@ with(o_referee) {
     t.card_title = ds_list_find_value(player_cards, i);
     t.click_behavior = pack(scr_go_to_next_room_click, t.card_title);
   }
+  current_state = game_state.deck_selected;
 }
 
