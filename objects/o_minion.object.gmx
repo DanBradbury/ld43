@@ -97,6 +97,7 @@ if(enemy_unit) {
           <argument>
             <kind>1</kind>
             <string>if(current_hp &lt;= 0 &amp;&amp; !destroying) {
+  /*show_message("destroying minion");*/
   destroying = true;
   if(enemy_unit) {
     var c = ds_list_find_index(o_referee.enemy_minions, self);

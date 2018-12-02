@@ -58,7 +58,7 @@ if(mouse_x &gt; bbox_left &amp;&amp; mouse_x &lt; bbox_right &amp;&amp; mouse_y 
 } else {
   hovering = false;
 }
-if(!is_enemy_turn &amp;&amp; mouse_check_button_pressed(mb_left) &amp;&amp; hovering &amp;&amp; o_referee.player_energy &gt;= energy_cost) {
+if((room == 0 || !is_enemy_turn) &amp;&amp; mouse_check_button_pressed(mb_left) &amp;&amp; hovering &amp;&amp; (room == 0 || o_referee.player_energy &gt;= energy_cost)) {
   script_execute(click_behavior[0], card_title);
   if(o_referee.current_state == 2) {
     scr_play_card_from_hand(self, card_title);
