@@ -87,6 +87,7 @@ if(num_cards == 7 &amp;&amp; !display_selected_deck) {
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
+draw_set_font(f_default);
 draw_set_color(c_red);
 if(!started_deck_selection) {
   draw_text(0,1, "PRESS &lt; SPACE &gt; TO START DECK SELECTION");

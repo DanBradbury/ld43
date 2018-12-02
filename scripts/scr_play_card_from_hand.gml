@@ -3,7 +3,9 @@ with(o_referee) {
   var i = ds_list_find_index(current_hand, argument[0]);
   player_energy -= argument[0].energy_cost;
   ds_list_delete(current_hand, i);
-  current_turn++;
+  if(player_energy == 0) {
+    current_turn++;
+  }
 }
 
 with(argument[0]) {

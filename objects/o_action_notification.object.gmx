@@ -95,6 +95,7 @@ text = "ENEMY PLAYED: SUMMON MINIONS";</string>
           <argument>
             <kind>1</kind>
             <string>///DRAW_EVENT CODE
+draw_set_font(f_default);
 draw_set_color(c_yellow);
 draw_text(x,y,text);</string>
           </argument>

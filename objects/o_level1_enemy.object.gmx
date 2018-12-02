@@ -101,6 +101,7 @@ scr_enemy_play_card(self, enemy_hand[0]);</string>
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
+draw_set_font(f_default);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_text(room_width/2, 80, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));</string>
