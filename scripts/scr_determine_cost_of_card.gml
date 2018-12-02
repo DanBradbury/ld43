@@ -5,7 +5,7 @@ switch(argument[0]) {
   case 'Spawn Bear':
     return 2;
   case 'Gain Energy':
-    return 2;
+    return 1;
   case 'Healing Ward':
     return 2;
   case 'Blast Minions':

@@ -43,6 +43,8 @@ current_shield = 0;
 current_enemy = -1;
 current_turn = 0;
 start_player_turn = false;
+player_blocking = false;
+player_countering = false;
 
 current_hand = ds_list_create();
 current_pile = ds_list_create();

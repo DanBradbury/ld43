@@ -3,6 +3,7 @@ if (live_call()) return live_result;
 if(is_enemy_turn) {
   show_message("enemy poison target");
 } else {
-  show_message("friendly posion target");
+  /*show_message("friendly posion target");*/
+  o_referee.current_enemy.poisoned = true;
 }
 
