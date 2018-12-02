@@ -61,7 +61,11 @@ if(enemy_unit) {
   if(ds_list_size(o_referee.friendly_minions) == 0) {
     o_referee.current_hp -= attack_damage;
   } else {
-    show_message("should be attacking other minions");
+    /*show_message("should be attacking other minions");*/
+    var m = 0;
+    m = ds_list_find_value(o_referee.friendly_minions, 0);
+    m.current_hp -= attack_damage;
+    current_hp -= m.attack_damage;
   }
 } else {
   if(ds_list_size(o_referee.enemy_minions) == 0) {

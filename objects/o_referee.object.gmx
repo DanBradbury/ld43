@@ -61,6 +61,7 @@ player_countering = false;
 
 current_hand = ds_list_create();
 current_pile = ds_list_create();
+player_played_cards = ds_list_create();
 
 player_cards = ds_list_create();
 deck_choices = pack(
@@ -224,7 +225,10 @@ if(current_battle_state == battle_state.minion_phase &amp;&amp; !minion_phase_st
 }
 
 if(is_enemy_turn &amp;&amp; start_player_turn) {
-  /*show_message("switching characterS");*/
+  /*show_message("Starting enemy turn");*/
+  with(current_enemy) {
+    alarm[2] = 60;
+  }
   /*var m = 0;*/
   /*m = scr_resolve_friendly_minions();*/
   /*current_battle_state = battle_state.enemy_turn;*/

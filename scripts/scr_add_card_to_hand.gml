@@ -1,9 +1,14 @@
 ///scr_add_card_to_hand(ARG_INFO)
 with(o_referee) {
   if(ds_list_size(current_pile) == 0) {
-    show_message("reshuffling");
+    if(ds_list_size(player_played_cards) > 0) {
+      show_message("creating from played cards");
+      scr_create_pile_from_played_cards();
+    } else {
+      show_message("creating fresh pile");
+      scr_create_pile();
+    }
     //scr_reshuffle_cards();
-    scr_create_pile();
   }
   var s = irandom_range(0, ds_list_size(current_pile)-1);
   var cs = ds_list_find_value(current_pile, s);

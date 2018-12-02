@@ -30,6 +30,9 @@ o_referee.current_battle_state = o_referee.battle_state.enemy_turn;
 var m = 0;
 m = instance_create(x,y, o_level1_enemy);
 o_referee.current_enemy = m;
+with(m) {
+  alarm[2] = 60;
+}
 
 scr_select_hand();</string>
           </argument>
