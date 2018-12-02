@@ -213,6 +213,8 @@ if(true) {
   draw_text(0,160, "PILE SIZE: "+string(ds_list_size(current_pile)));
   draw_text(0,190, "ENEMY MINIONS: "+string(ds_list_size(enemy_minions)));
   draw_text(0,210, "FRIENDLY MINIONS: "+string(ds_list_size(friendly_minions)));
+  draw_text(0,240, "ENEMY HAND SIZE: "+string(ds_list_size(o_referee.current_enemy.hand)));
+  draw_text(0,270, "ENEMY PILE SIZE: "+string(ds_list_size(o_referee.current_enemy.deck)));
 }
 
 
