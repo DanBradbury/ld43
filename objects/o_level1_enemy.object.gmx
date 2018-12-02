@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 deck = ds_list_create();
-ds_list_add(deck, "Shield", "Spawn Minions", "Spawn Bear", "Shield", "Blast Minions", "Do Damage", "Block Damage");
+ds_list_add(deck, "Spawn Minions", "Spawn Minions", "Spawn Bear", "Spawn Bear", "Healing Ward", "Do Damage", "Do Damage");
 hand = ds_list_create();
+priority_cards = pack("Spawn Minions", "Do Damage", "Spawn Bear");
+
 //scr_pick_hand
 var i = 0;
 for(i=0;i&lt;3;i++) {
@@ -39,7 +41,7 @@ for(i=0;i&lt;3;i++) {
 
 turn_triggered = false;
 enemy_hand = pack("Shield", "Spawn Minions", "Spawn Bear", "Shield");
-max_hp = 100;
+max_hp = 50;
 current_hp = max_hp;
 shield_hp = 0;
 cards_played = 0;
@@ -67,6 +69,32 @@ poisoned = false;</string>
             <kind>1</kind>
             <string>// XXX: should be revisted to select the best card for the play / follow a script
 //scr_choose_card
+//check from priority list first
+var i = 0;
+var found = false;
+for(i=0;i&lt;ds_list_size(hand);i++) {
+  if(!found) {
+    var m =0;
+    m = ds_list_find_value(hand, i);
+    var q = 0;
+    for(q=0;q&lt;array_length_1d(priority_cards);q++) {
+      if(priority_cards[q] == m) {
+        found = true;
+      }
+    }
+  }
+  if(found) {
+    scr_enemy_play_card(self, m);
+    ds_list_delete(hand, m);
+    // also add a card to the hand after
+    var m = irandom_range(0, ds_list_size(deck)-1);
+    ds_list_add(hand, ds_list_find_value(deck, m));
+    ds_list_delete(deck, m);
+    cards_played++;
+    return 1;
+  }
+}
+
 var m = irandom_range(0, 2);
 var k = ds_list_find_value(hand, m);
 show_message(k);

@@ -62,7 +62,8 @@ if(mouse_x &gt; x1 &amp;&amp; mouse_x &lt; x2 &amp;&amp; mouse_y &gt; y1 &amp;&a
   hovering = true;
   if(mouse_check_button_pressed(mb_left)) {
     //scr_end_turn()
-    o_referee.current_turn++;
+    o_referee.current_battle_state = 2;
+    /*o_referee.current_turn++;*/
     instance_destroy();
   }
 } else {

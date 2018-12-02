@@ -10,7 +10,13 @@ var script_to_run = scr_determine_card_action(argument[1]);
 
 script_execute(script_to_run);
 
+/*show_message("switching characters");*/
+var m = 0;
+m = scr_resolve_minions();
+/*show_message("after resolve minions");*/
 o_referee.current_turn++;
+/*o_referee.current_battle_state = o_referee.battle_state.player_turn;*/
+
 with(argument[0]) {
   turn_triggered = false;
 }

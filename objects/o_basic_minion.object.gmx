@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>o_minion</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,47 @@
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
+event_inherited();
 max_hp = 3;
-current_hp = max_hp;</string>
+current_hp = max_hp;
+attack_damage = 3;
+destroying = false;
+/*attack_triggered = false;*/
+/*attack_anim_playing = false;*/
+/*original_x = x;*/
+/*original_y = y;*/
+/*enemy_unit = false;*/</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+///ALARM0 CODE
+/*attack_triggered = false;*/
+/*attack_anim_playing =false;*/
+/*y = original_y;*/
+/*if(enemy_unit) {*/
+  /*o_referee.current_hp -= attack_damage;*/
+/*} else {*/
+  /*o_referee.current_enemy.current_hp -= attack_damage;*/
+/*}*/</string>
           </argument>
         </arguments>
       </action>
@@ -49,21 +88,7 @@ current_hp = max_hp;</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(current_hp &lt;= 0) {
-  var c = ds_list_find_index(o_referee.enemy_minions, self);
-  if(c != -1) {
-    /*show_message("enemy minion should be removed");*/
-    ds_list_delete(o_referee.enemy_minions, c);
-  } else {
-    var d = ds_list_find_index(o_referee.friendly_minions, self);
-    if(d != -1) {
-      ds_list_delete(o_referee.enemy_minions, d);
-      /*show_message("friendly minion should be removed");*/
-    }
-  }
-  // TODO: replace with proper kill animation
-  instance_destroy();
-}</string>
+            <string>event_inherited();</string>
           </argument>
         </arguments>
       </action>
