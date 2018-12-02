@@ -13,6 +13,7 @@
     <sprite>sprites\s_card1</sprite>
     <sprite>sprites\s_card_back</sprite>
     <sprite>sprites\s_monster1</sprite>
+    <sprite>sprites\s_healing_ward</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -39,7 +40,7 @@
     <script>scripts\scr_spawn_bear.gml</script>
     <script>scripts\scr_gain_energy.gml</script>
     <script>scripts\scr_healing_ward.gml</script>
-    <script>scripts\scr_blast_minion.gml</script>
+    <script>scripts\scr_blast_minions.gml</script>
     <script>scripts\scr_shield.gml</script>
     <script>scripts\scr_block_damage.gml</script>
     <script>scripts\scr_do_damage.gml</script>
@@ -63,6 +64,7 @@
     <object>objects\o_basic_minion</object>
     <object>objects\o_action_notification</object>
     <object>objects\o_end_turn_button</object>
+    <object>objects\o_healing_ward</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\r_start_screen</room>

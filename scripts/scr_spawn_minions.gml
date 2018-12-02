@@ -6,7 +6,9 @@ if(is_enemy_turn) {
   var i = 0;
   for(i=0; i<3; i++) {
     var coords = o_referee.enemy_minion_spots[o_referee.num_enemy_minions];
-    instance_create(coords[0],coords[1], o_basic_minion);
+    var m = 0;
+    m = instance_create(coords[0],coords[1], o_basic_minion);
+    ds_list_add(o_referee.enemy_minions, m);
     o_referee.num_enemy_minions++;
   }
 } else {
@@ -14,7 +16,9 @@ if(is_enemy_turn) {
   for(i=0; i<3; i++) {
     //determine x,y coords with o_referee.enemy_minion_spots
     var coords = o_referee.friendly_minion_spots[o_referee.num_friendly_minions];
-    instance_create(coords[0],coords[1], o_basic_minion);
+    var m = 0;
+    m = instance_create(coords[0],coords[1], o_basic_minion);
+    ds_list_add(o_referee.friendly_minions, m);
     o_referee.num_friendly_minions++;
   }
 }

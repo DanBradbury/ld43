@@ -9,8 +9,8 @@ switch(argument[0]) {
     return scr_gain_energy;
   case 'Healing Ward':
     return scr_healing_ward;
-  case 'Blast Minion':
-    return scr_blast_minion;
+  case 'Blast Minions':
+    return scr_blast_minions;
   case 'Shield':
     return scr_shield;
   case 'Block Damage':

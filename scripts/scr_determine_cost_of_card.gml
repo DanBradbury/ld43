@@ -8,8 +8,8 @@ switch(argument[0]) {
     return 2;
   case 'Healing Ward':
     return 2;
-  case 'Blast Minion':
-    return 2;
+  case 'Blast Minions':
+    return 3;
   case 'Shield':
     return 2;
   case 'Block Damage':

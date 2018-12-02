@@ -29,7 +29,9 @@
 turn_triggered = false;
 enemy_hand = pack("Shield", "Spawn Minions", "Shield", "Shield");
 max_hp = 100;
-current_hp = max_hp;</string>
+current_hp = max_hp;
+shield_hp = 0;
+cards_played = 0;</string>
           </argument>
         </arguments>
       </action>
@@ -52,7 +54,8 @@ current_hp = max_hp;</string>
           <argument>
             <kind>1</kind>
             <string>// XXX: should be revisted to select the best card for the play / follow a script
-scr_enemy_play_card(self, enemy_hand[0]);</string>
+scr_enemy_play_card(self, enemy_hand[cards_played]);
+cards_played++;</string>
           </argument>
         </arguments>
       </action>
@@ -104,7 +107,11 @@ scr_enemy_play_card(self, enemy_hand[0]);</string>
 draw_set_font(f_default);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_text(room_width/2, 80, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));</string>
+draw_text(room_width/2, 80, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));
+if(shield_hp &gt; 0) {
+  draw_set_color(c_blue);
+  draw_text(room_width/2, 110, "SHIELD HP: "+string(shield_hp));
+}</string>
           </argument>
         </arguments>
       </action>

@@ -26,7 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>o_referee.current_state = o_referee.game_state.battling;
-instance_create(x,y, o_level1_enemy);
+var m = 0;
+m = instance_create(x,y, o_level1_enemy);
+o_referee.current_enemy = m;
+
 scr_select_hand();</string>
           </argument>
         </arguments>

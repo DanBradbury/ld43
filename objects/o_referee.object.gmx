@@ -38,6 +38,9 @@ player_energy = max_energy;
 max_hp = 100;
 current_hp = max_hp;
 
+current_shield = 0;
+
+current_enemy = -1;
 current_turn = 0;
 start_player_turn = false;
 
@@ -47,7 +50,7 @@ current_pile = ds_list_create();
 player_cards = ds_list_create();
 deck_choices = pack(
   pack("Spawn Minions", "Spawn Bear", "Gain Energy"),
-  pack("Healing Ward", "Blast Minion", "Shield"),
+  pack("Healing Ward", "Blast Minions", "Shield"),
   pack("Block Damage", "Do Damage", "Counter Spell"),
   pack("Spawn Minions", "Shield", "Healing Ward"),
   pack("Do Damage", "Spawn Bear", "Gain Energy"),
@@ -60,21 +63,21 @@ friendly_minions = ds_list_create();
 
 num_enemy_minions = 0;
 enemy_minion_spots = pack(
-  pack(100, 150),
-  pack(150, 150),
   pack(200, 150),
-  pack(250, 150),
   pack(300, 150),
-  pack(350, 150),
+  pack(400, 150),
+  pack(500, 150),
+  pack(600, 150),
+  pack(700, 150)
 );
 num_friendly_minions = 0;
 friendly_minion_spots = pack(
-  pack(100, 550),
-  pack(150, 550),
-  pack(200, 550),
-  pack(250, 550),
-  pack(300, 550),
-  pack(350, 550),
+  pack(200, 450),
+  pack(300, 450),
+  pack(400, 450),
+  pack(500, 450),
+  pack(600, 450),
+  pack(700, 450)
 );</string>
           </argument>
         </arguments>
@@ -185,6 +188,8 @@ switch(current_state) {
     draw_rectangle_colour(0, 0, room_width, 50, selected_color, selected_color, selected_color, selected_color, false);
     draw_set_color(c_white);
     draw_text(15, 15, "LIFE: 120/120");
+    draw_text(155, 15, "SHIELD: "+string(current_shield));
+
     draw_text(room_width-200, 15, "TURN ENERGY: "+string(player_energy)+"/"+string(max_energy));
     //also draw the current stack of cards
     draw_sprite(s_card_back, 0, room_width-185, room_height-270);
@@ -204,6 +209,8 @@ if(true) {
   draw_text(0,100, "MOUSE (X,Y): ("+string(mouse_x)+","+string(mouse_y)+")");
   draw_text(0,130, "HAND SIZE: "+string(ds_list_size(current_hand)));
   draw_text(0,160, "PILE SIZE: "+string(ds_list_size(current_pile)));
+  draw_text(0,190, "ENEMY MINIONS: "+string(ds_list_size(enemy_minions)));
+  draw_text(0,210, "FRIENDLY MINIONS: "+string(ds_list_size(friendly_minions)));
 }
 
 
