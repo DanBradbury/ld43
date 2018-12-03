@@ -19,6 +19,9 @@
     <sprite>sprites\s_shield</sprite>
     <sprite>sprites\s_energy</sprite>
     <sprite>sprites\s_card_art</sprite>
+    <sprite>sprites\s_monster3</sprite>
+    <sprite>sprites\s_monster4</sprite>
+    <sprite>sprites\s_blood_fx</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -61,11 +64,13 @@
     <script>scripts\scr_determine_card_art.gml</script>
     <script>scripts\scr_determine_detail_text.gml</script>
     <script>scripts\scr_reposition_hand.gml</script>
+    <script>scripts\scr_display_enemy_card_play.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_card_left_display</font>
     <font>fonts\f_default</font>
     <font>fonts\f_card_text</font>
+    <font>fonts\f_action_notifs</font>
     <font>fonts\f_card_detail_text</font>
     <font>fonts\f_card_text_bold</font>
     <font>fonts\f_card_energy_text</font>
@@ -88,6 +93,8 @@
     <object>objects\o_friendly_minion</object>
     <object>objects\o_minion</object>
     <object>objects\o_help_page</object>
+    <object>objects\o_damage_done_indicator</object>
+    <object>objects\o_blood_fx</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\r_start_screen</room>
@@ -95,12 +102,13 @@
     <room>rooms\r_battle_room2</room>
     <room>rooms\r_help_page</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
     <constant name="attacker_list">o_referee.current_attackers</constant>
     <constant name="is_enemy_turn">o_referee.current_turn%2==0</constant>
     <constant name="skip_deck_select">1</constant>
     <constant name="live_enabled">1</constant>
-    <constant name="debug_print">1</constant>
+    <constant name="debug_print">0</constant>
+    <constant name="STARTING_HAND_SIZE">5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

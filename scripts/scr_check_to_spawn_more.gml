@@ -2,7 +2,7 @@
 if (live_call()) return live_result;
 with(o_deck_select) {
   num_cards++;
-  if(num_cards == 7) {
+  if(num_cards == STARTING_HAND_SIZE) {
     /*show_message("picked all 7 cards");*/
     return 0;
   } else {

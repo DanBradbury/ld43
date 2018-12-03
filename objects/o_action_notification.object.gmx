@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = 25;
-y = 70;
-alarm[0] = 90;
+            <string>x = room_width/2;
+y = room_height/2-75;
+alarm[0] = 30;
 text = "ENEMY PLAYED: SUMMON MINIONS";</string>
           </argument>
         </arguments>
@@ -72,7 +72,7 @@ text = "ENEMY PLAYED: SUMMON MINIONS";</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y+=2;</string>
+            <string>/*y+=2;*/</string>
           </argument>
         </arguments>
       </action>
@@ -95,8 +95,9 @@ text = "ENEMY PLAYED: SUMMON MINIONS";</string>
           <argument>
             <kind>1</kind>
             <string>///DRAW_EVENT CODE
-draw_set_font(f_default);
-draw_set_color(c_yellow);
+draw_set_halign(fa_center);
+draw_set_font(f_action_notifs);
+draw_set_color(c_white);
 draw_text(x,y,text);</string>
           </argument>
         </arguments>

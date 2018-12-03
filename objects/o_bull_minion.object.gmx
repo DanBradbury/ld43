@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 event_inherited();
-max_hp = 5;
+max_hp = 4;
 current_hp = max_hp;
-attack_damage = 5;</string>
+attack_damage = 4;</string>
           </argument>
         </arguments>
       </action>
@@ -97,14 +97,7 @@ event_inherited();</string>
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
-draw_set_font(f_default);
-if(enemy_unit ){
-  draw_sprite(sprite_index, 0, x, y);
-} else {
-  draw_sprite(sprite_index, 1, x, y);
-}
-draw_set_color(c_red);
-draw_text(x-10,y+sprite_width/2-50, string(current_hp)+"/"+string(max_hp));</string>
+event_inherited();</string>
           </argument>
         </arguments>
       </action>

@@ -48,7 +48,7 @@ current_battle_state = battle_state.not_started;
 
 max_energy = 3;
 player_energy = max_energy;
-max_hp = 60;
+max_hp = 30;
 current_hp = max_hp;
 
 current_shield = 0;
@@ -65,13 +65,22 @@ player_played_cards = ds_list_create();
 
 player_cards = ds_list_create();
 deck_choices = pack(
-  pack("Spawn Minions", "Spawn Bear", "Gain Energy"),
-  pack("Poison Target", "Blast Minions", "Shield"),
-  pack("Do Damage", "Gain Energy", "Shield"),
-  pack("Gain Energy", "Shield", "Poison Target"),
-  pack("Do Damage", "Spawn Bear", "Gain Energy"),
-  pack("Poison Target", "Shield", "Gain Energy"),
-  pack("Do Damage", "Poison Target", "Spawn Minions")
+  pack("Spawn Minions", "Spawn Bear", "Do Damage"),
+  pack("Destroy Minion", "Blast Minions", "Shield"),
+  pack("Gain Energy", "Spawn Minions", "Poison Target"),
+  pack("Spawn Ents", "Spawn Dino", "Spawn Bear"),
+  pack("Shield", "Do Damage", "Gain Energy"),
+
+
+
+
+  /*pack("Spawn Minions", "Spawn Bear", "Gain Energy"),*/
+  /*pack("Poison Target", "Blast Minions", "Shield"),*/
+  /*pack("Do Damage", "Gain Energy", "Shield"),*/
+  /*pack("Gain Energy", "Shield", "Poison Target"),*/
+  /*pack("Do Damage", "Spawn Bear", "Gain Energy"),*/
+  /*pack("Poison Target", "Shield", "Gain Energy"),*/
+  /*pack("Do Damage", "Poison Target", "Spawn Minions")*/
 
 
 
@@ -89,21 +98,25 @@ friendly_minions = ds_list_create();
 
 num_enemy_minions = 0;
 enemy_minion_spots = pack(
+  pack(100, 150),
   pack(200, 150),
   pack(300, 150),
   pack(400, 150),
   pack(500, 150),
   pack(600, 150),
-  pack(700, 150)
+  pack(700, 150),
+  pack(800, 150)
 );
 num_friendly_minions = 0;
 friendly_minion_spots = pack(
-  pack(200, 450),
-  pack(300, 450),
-  pack(400, 450),
-  pack(500, 450),
-  pack(600, 450),
-  pack(700, 450)
+  pack(100, 650),
+  pack(200, 650),
+  pack(300, 650),
+  pack(400, 650),
+  pack(500, 650),
+  pack(600, 650),
+  pack(700, 650),
+  pack(800, 650)
 );</string>
           </argument>
         </arguments>

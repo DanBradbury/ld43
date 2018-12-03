@@ -91,6 +91,7 @@ if(mouse_x &gt; x1 &amp;&amp; mouse_x &lt; x2 &amp;&amp; mouse_y &gt; y1 &amp;&a
             <string>if (live_call()) return live_result;
 draw_set_color(c_red);
 draw_rectangle(x1, y1, x2, y2, false);
+draw_set_halign(fa_left);
 draw_set_color(c_black);
 if(hovering) {
   draw_set_color(c_white);

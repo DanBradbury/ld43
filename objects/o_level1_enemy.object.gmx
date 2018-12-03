@@ -28,6 +28,8 @@
             <string>if (live_call()) return live_result;
 deck = ds_list_create();
 ds_list_add(deck, "Spawn Minions", "Spawn Minions", "Shield", "Spawn Bear", "Spawn Minions", "Do Damage", "Do Damage", "Do Damage");
+// using to test do damage displays
+/*ds_list_add(deck, "Do Damage", "Do Damage", "Do Damage", "Do Damage", "Spawn Minions", "Do Damage", "Do Damage", "Do Damage");*/
 original_deck = ds_list_create();
 ds_list_copy(original_deck, deck);
 hand = ds_list_create();
@@ -50,7 +52,31 @@ enemy_hand = pack("Shield", "Spawn Minions", "Spawn Bear", "Shield");
 max_hp = 50;
 current_hp = max_hp;
 current_shield = 0;
-poisoned = false;</string>
+poisoned = false;
+selected_card = "NOT SET HOLMES";</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_enemy_play_card(selected_card);
+alarm[1] = 30;</string>
           </argument>
         </arguments>
       </action>
@@ -76,9 +102,7 @@ poisoned = false;</string>
 turn_triggered = true;
 alarm[0] = TURN_MOVE_SPEED;
 scr_reorganize_enemy_minions();
-/*show_message("should reorganize minions");*/
-
-</string>
+/*show_message("should reorganize minions");*/</string>
           </argument>
         </arguments>
       </action>
@@ -143,8 +167,17 @@ for(i=0;i&lt;ds_list_size(hand);i++) {
     }
   }
   if(found) {
-    scr_enemy_play_card(m);
-    alarm[1] = 30;
+    // new hot way
+    scr_display_enemy_card_play(m);
+    selected_card = m;
+    alarm[3] = 20;
+
+    // old way of doing things
+    /*scr_enemy_play_card(m);*/
+    /*alarm[1] = 30;*/
+
+
+
     /*show_message("starting alarm to end turn");*/
     /*scr_end_turn();*/
     // hope we dont need this
@@ -176,8 +209,16 @@ for(i=0;i&lt;ds_list_size(hand);i++) {
 var m = irandom_range(0, 2);
 var k = ds_list_find_value(hand, m);
 /*show_message(k);*/
-scr_enemy_play_card(k);
-alarm[1] = 30;
+
+selected_card = k;
+scr_display_enemy_card_play(k);
+alarm[3] = 20;
+
+// keeping around in case the above doesnt work
+/*scr_enemy_play_card(k);*/
+/*alarm[1] = 30;*/
+
+
 /*show_message("starting alarm to end turn");*/
 // hope we dont need this
 /*ds_list_delete(hand, m);*/
