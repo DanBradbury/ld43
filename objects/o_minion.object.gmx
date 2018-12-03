@@ -128,13 +128,13 @@ if(enemy_unit) {
 if(attack_triggered) {
   attack_triggered = false;
   attack_anim_playing = true;
-  alarm[0] = 10;
+  alarm[0] = 8;
 }
 if(attack_anim_playing) {
   if(enemy_unit) {
-    y += 5;
+    y += 10;
   } else {
-    y -= 5;
+    y -= 10;
   }
 }</string>
           </argument>

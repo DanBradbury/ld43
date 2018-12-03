@@ -15,6 +15,10 @@
     <sprite>sprites\s_monster1</sprite>
     <sprite>sprites\s_healing_ward</sprite>
     <sprite>sprites\s_monster2</sprite>
+    <sprite>sprites\s_heart</sprite>
+    <sprite>sprites\s_shield</sprite>
+    <sprite>sprites\s_energy</sprite>
+    <sprite>sprites\s_card_art</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -54,10 +58,13 @@
     <script>scripts\scr_end_turn.gml</script>
     <script>scripts\scr_reorganize_enemy_minions.gml</script>
     <script>scripts\scr_create_pile_from_played_cards.gml</script>
+    <script>scripts\scr_determine_card_art.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_card_left_display</font>
     <font>fonts\f_default</font>
+    <font>fonts\f_card_text</font>
+    <font>fonts\f_card_text_bold</font>
   </fonts>
   <objects name="objects">
     <object>objects\o_deck_select</object>
@@ -81,11 +88,12 @@
     <room>rooms\r_battle_room</room>
     <room>rooms\r_battle_room2</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
     <constant name="attacker_list">o_referee.current_attackers</constant>
     <constant name="is_enemy_turn">o_referee.current_turn%2==0</constant>
     <constant name="skip_deck_select">1</constant>
     <constant name="live_enabled">1</constant>
+    <constant name="debug_print">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

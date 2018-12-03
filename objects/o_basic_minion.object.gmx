@@ -112,7 +112,11 @@ destroying = false;
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 draw_set_font(f_default);
-draw_sprite(sprite_index, image_index, x, y);
+if(enemy_unit) {
+  draw_sprite(sprite_index, 0, x, y);
+} else {
+  draw_sprite(sprite_index, 1, x, y);
+}
 draw_set_color(c_red);
 draw_text(x-10,y+sprite_width/2-50, string(current_hp)+"/"+string(max_hp));</string>
           </argument>

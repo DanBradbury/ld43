@@ -2,10 +2,10 @@
 with(o_referee) {
   if(ds_list_size(current_pile) == 0) {
     if(ds_list_size(player_played_cards) > 0) {
-      show_message("creating from played cards");
+      /*show_message("creating from played cards");*/
       scr_create_pile_from_played_cards();
     } else {
-      show_message("creating fresh pile");
+      /*show_message("creating fresh pile");*/
       scr_create_pile();
     }
     //scr_reshuffle_cards();

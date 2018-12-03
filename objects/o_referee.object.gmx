@@ -67,11 +67,14 @@ player_cards = ds_list_create();
 deck_choices = pack(
   pack("Spawn Minions", "Spawn Bear", "Gain Energy"),
   pack("Block Damage", "Blast Minions", "Shield"),
-  pack("Do Damage", "Gain Energy", "Spawn Bear"),
-  pack("Spawn Minions", "Shield", "Block Damage"),
+  pack("Do Damage", "Gain Energy", "Shield"),
+  pack("Gain Energy", "Shield", "Block Damage"),
   pack("Do Damage", "Spawn Bear", "Gain Energy"),
-  pack("Spawn Minions", "Shield", "Gain Energy"),
+  pack("Block Damage", "Shield", "Gain Energy"),
   pack("Do Damage", "Block Damage", "Spawn Minions")
+
+
+
   /*pack("Spawn Minions", "Spawn Bear", "Gain Energy"),*/
   /*pack("Healing Ward", "Blast Minions", "Shield"),*/
   /*pack("Block Damage", "Do Damage", "Counter Spell"),*/
@@ -304,18 +307,22 @@ switch(current_state) {
     var selected_color = c_purple;
     draw_rectangle_colour(0, 0, room_width, 50, selected_color, selected_color, selected_color, selected_color, false);
     draw_set_color(c_white);
-    draw_text(15, 15, "LIFE: "+string(current_hp)+"/"+string(max_hp));
-    draw_text(155, 15, "SHIELD: "+string(current_shield));
+    draw_sprite_ext(s_heart, 0, 15,8, 3, 3, 0, c_white, 1);
+    draw_set_font(f_card_text_bold);
+    draw_text(45, 5, string(current_hp)+"/"+string(max_hp));
+    draw_sprite_ext(s_shield, 0, 155,9, 2, 2, 0, c_white, 1);
+    draw_text(192, 5, string(current_shield));
 
-    draw_text(room_width-200, 15, "TURN ENERGY: "+string(player_energy)+"/"+string(max_energy));
+    draw_sprite_ext(s_energy, 0, room_width-110, 5, 2, 2, 0, c_white, 1);
+    draw_text(room_width-70, 2, string(player_energy)+"/"+string(max_energy));
     //also draw the current stack of cards
     draw_sprite(s_card_back, 0, room_width-185, room_height-270);
     draw_set_color(c_white);
-    draw_set_font(f_card_left_display);
+    draw_set_font(f_card_text);
+    /*draw_set_font(f_card_left_display);*/
     draw_text(room_width-132, room_height-190, string(ds_list_size(current_pile)));
     draw_set_font(f_default);
-    // XXX: DEBUG?
-    if(true) {
+    if(debug_print) {
       draw_set_color(c_blue);
       draw_text(0, room_height-75, "Player Turn Start: "+string(start_player_turn));
       draw_text(room_width-200,240, "ENEMY HAND SIZE: "+string(ds_list_size(o_referee.current_enemy.hand)));
@@ -323,7 +330,7 @@ switch(current_state) {
     }
   default: break;
 }
-if(true) {
+if(debug_print) {
   draw_set_color(c_white);
   draw_text(0,100, "MOUSE (X,Y): ("+string(mouse_x)+","+string(mouse_y)+")");
   draw_text(0,130, "HAND SIZE: "+string(ds_list_size(current_hand)));

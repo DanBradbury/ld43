@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 deck = ds_list_create();
-ds_list_add(deck, "Spawn Minions", "Spawn Minions", "Spawn Bear", "Spawn Bear", "Healing Ward", "Do Damage", "Do Damage");
+ds_list_add(deck, "Spawn Minions", "Spawn Minions", "Spawn Bear", "Spawn Bear", "Spawn Minions", "Do Damage", "Do Damage");
 original_deck = ds_list_create();
 ds_list_copy(original_deck, deck);
 hand = ds_list_create();
@@ -249,10 +249,10 @@ if(false &amp;&amp; is_enemy_turn &amp;&amp; !ending_turn &amp;&amp; !turn_trigg
           <argument>
             <kind>1</kind>
             <string>if (live_call()) return live_result;
-draw_set_font(f_default);
+draw_set_font(f_card_text_bold);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_text(room_width/2, 80, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));
+draw_text(room_width/2, 65, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));
 if(shield_hp &gt; 0) {
   draw_set_color(c_blue);
   draw_text(room_width/2, 110, "SHIELD HP: "+string(shield_hp));
@@ -262,7 +262,7 @@ if(poisoned) {
   draw_text(room_width/2, 140, "POISONED");
 }
 
-if(true) {
+if(debug_print) {
   draw_set_color(c_white);
   draw_text(room_width-300, 300, "TURN TRIGGERED: "+string(turn_triggered));
   draw_text(room_width-300, 330, "ENDING TURN: "+string(ending_turn));

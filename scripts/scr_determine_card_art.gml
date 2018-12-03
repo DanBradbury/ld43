@@ -1,27 +1,28 @@
-///scr_determine_cost_of_card(ARG_INFO)
+///scr_determine_card_art(ARG_INFO)
 switch(argument[0]) {
   case 'Spawn Minions':
-    return 2;
+    return 0;
   case 'Spawn Bear':
-    return 2;
+    return 1;
   case 'Gain Energy':
-    return 1;
+    return 2;
   case 'Healing Ward':
-    return 2;
-  case 'Blast Minions':
     return 3;
+  case 'Blast Minions':
+    return 4;
   case 'Shield':
-    return 2;
+    return 5;
   case 'Block Damage':
-    return 1;
+    return 6;
   case 'Do Damage':
-    return 1;
+    return 7;
   case 'Counter Spell':
-    return 2;
+    return 8;
   case 'Immunity Aura':
-    return 2;
+    return 9;
   case 'Poison Target':
-    return 2;
+    return 10;
   default:
-    return 1;
+    return 0;
 }
+
