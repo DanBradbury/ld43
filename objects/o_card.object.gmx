@@ -27,9 +27,13 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 card_title = "NOTSETYET";
+detail_text = "NOTHING HERE";
 energy_cost = -1;
 hovering = false;
 click_behavior = pack(do_nothing_card_click, card_title);
+draw_scale = 2;
+image_xscale = draw_scale;
+image_yscale = draw_scale;
 </string>
           </argument>
         </arguments>
@@ -59,10 +63,15 @@ if(mouse_x &gt; bbox_left &amp;&amp; mouse_x &lt; bbox_right &amp;&amp; mouse_y 
   hovering = false;
 }
 if((room == 0 || !is_enemy_turn) &amp;&amp; mouse_check_button_pressed(mb_left) &amp;&amp; hovering &amp;&amp; (room == 0 || o_referee.player_energy &gt;= energy_cost)) {
+  // XXX: still dont think this is important (passing card_title up as well)
   script_execute(click_behavior[0], card_title);
   if(o_referee.current_state == 2) {
     scr_play_card_from_hand(self, card_title);
   }
+}
+// TODO: when we come back
+if(hovering) {
+  y -= 2;
 }
 </string>
           </argument>
@@ -88,14 +97,14 @@ if((room == 0 || !is_enemy_turn) &amp;&amp; mouse_check_button_pressed(mb_left) 
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 // TODO: start passing self and see what happens.. should be much better... rule of 3s though trolol
-draw_card(x,y, card_title, energy_cost);
+draw_card(x,y, card_title, energy_cost, detail_text);
 var hover_color = c_yellow;
 if(energy_cost &gt; o_referee.player_energy) {
   hover_color = c_red;
 }
 if(hovering) {
-  draw_rectangle_colour(x-1, y-1, x+sprite_width+1, y+sprite_height+1, hover_color, hover_color, hover_color, hover_color, true);
-  draw_rectangle_colour(x-2, y-2, x+sprite_width+2, y+sprite_height+2, hover_color, hover_color, hover_color, hover_color, true);
+  draw_rectangle_colour(x-1, y-1, bbox_right+1, bbox_bottom+1, hover_color, hover_color, hover_color, hover_color, true);
+  draw_rectangle_colour(x-2, y-2, bbox_right+2, bbox_bottom+2, hover_color, hover_color, hover_color, hover_color, true);
 }</string>
           </argument>
         </arguments>

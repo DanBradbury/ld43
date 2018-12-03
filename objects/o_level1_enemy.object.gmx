@@ -34,6 +34,8 @@ hand = ds_list_create();
 priority_cards = pack("Spawn Minions", "Do Damage", "Spawn Bear");
 play_delay = false;
 
+TURN_MOVE_SPEED = 20;
+
 //scr_pick_hand
 var i = 0;
 for(i=0;i&lt;3;i++) {
@@ -72,7 +74,7 @@ poisoned = false;</string>
             <kind>1</kind>
             <string>///ALARM2 CODE
 turn_triggered = true;
-alarm[0] = 60;
+alarm[0] = TURN_MOVE_SPEED;
 scr_reorganize_enemy_minions();
 /*show_message("should reorganize minions");*/
 
@@ -225,7 +227,7 @@ if(ds_list_size(deck) &gt; 0 ) {
 if(false &amp;&amp; is_enemy_turn &amp;&amp; !ending_turn &amp;&amp; !turn_triggered) {
   // pretend to take a move
   turn_triggered = true;
-  alarm[0] = 60;
+  alarm[0] = TURN_MOVE_SPEED;
 }</string>
           </argument>
         </arguments>

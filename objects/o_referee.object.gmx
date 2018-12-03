@@ -175,12 +175,8 @@ for(i=0;i&lt;ds_list_size(friendly_minions);i++) {
 
 //reset the position of hand
 instance_create(x,y,o_end_turn_button);
-var q = 0;
-for(q=0;q&lt;ds_list_size(current_hand);q++) {
-  var t_obj = ds_list_find_value(current_hand, q);
-  t_obj.x = (room_width/2-250)+(q*155);
-  t_obj.y = room_height-200;
-}
+var m = 0;
+m = scr_reposition_hand();
 scr_ensure_hand_is_full();
 player_energy = max_energy;</string>
           </argument>
@@ -207,7 +203,7 @@ player_energy = max_energy;</string>
             <string>if (live_call()) return live_result;
 if(!is_enemy_turn &amp;&amp; !start_player_turn) {
   start_player_turn = true;
-  alarm[0] = 60;
+  alarm[0] = 5;
   //scr_ensure_hand_is_full();
 }
 if(current_battle_state == battle_state.minion_phase &amp;&amp; !minion_phase_started) {
@@ -308,7 +304,7 @@ switch(current_state) {
     draw_rectangle_colour(0, 0, room_width, 50, selected_color, selected_color, selected_color, selected_color, false);
     draw_set_color(c_white);
     draw_sprite_ext(s_heart, 0, 15,8, 3, 3, 0, c_white, 1);
-    draw_set_font(f_card_text_bold);
+    draw_set_font(f_card_detail_text);
     draw_text(45, 5, string(current_hp)+"/"+string(max_hp));
     draw_sprite_ext(s_shield, 0, 155,9, 2, 2, 0, c_white, 1);
     draw_text(192, 5, string(current_shield));
@@ -318,9 +314,12 @@ switch(current_state) {
     //also draw the current stack of cards
     draw_sprite(s_card_back, 0, room_width-185, room_height-270);
     draw_set_color(c_white);
-    draw_set_font(f_card_text);
+    draw_set_font(f_card_text_bold);
+    /*draw_set_font(f_card_text_extra_large);*/
     /*draw_set_font(f_card_left_display);*/
-    draw_text(room_width-132, room_height-190, string(ds_list_size(current_pile)));
+    // TODO: move this to an object
+    // show_pile_count
+    draw_text(room_width-137, room_height-260, string(ds_list_size(current_pile)));
     draw_set_font(f_default);
     if(debug_print) {
       draw_set_color(c_blue);
