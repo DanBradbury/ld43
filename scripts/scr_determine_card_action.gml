@@ -23,6 +23,12 @@ switch(argument[0]) {
     return scr_immunity_aura;
   case 'Poison Target':
     return scr_poison_target;
+  case 'Destroy Minion':
+    return scr_destroy_target_minion;
+  case 'Spawn Ents':
+    return scr_spawn_ents;
+  case 'Spawn Dino':
+    return scr_spawn_dino;
   default:
     return scr_play_card_action;
 }

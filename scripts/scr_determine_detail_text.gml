@@ -22,6 +22,12 @@ switch(argument[0]) {
     return "Immune until next turn";
   case 'Poison Target':
     return "Poison Target player/minion";
+  case 'Destroy Minion':
+    return "Kill selected minion";
+  case 'Spawn Ents':
+    return "Spawn 2 0/1 defensive Ents";
+  case 'Spawn Dino':
+    return "Spawn a 5/2 Dino";
   default:
     return "";
 }

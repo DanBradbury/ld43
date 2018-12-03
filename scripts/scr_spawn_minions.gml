@@ -9,6 +9,7 @@ if(is_enemy_turn) {
     var m = 0;
     m = instance_create(coords[0],coords[1], o_basic_minion);
     m.enemy_unit = true;
+    m.battle_pos = o_referee.num_enemy_minions;
     ds_list_add(o_referee.enemy_minions, m);
     o_referee.num_enemy_minions++;
   }
@@ -20,6 +21,7 @@ if(is_enemy_turn) {
     var m = 0;
     m = instance_create(coords[0],coords[1], o_basic_minion);
     m.enemy_unit = false;
+    m.battle_pos = o_referee.num_friendly_minions;
     ds_list_add(o_referee.friendly_minions, m);
     o_referee.num_friendly_minions++;
   }

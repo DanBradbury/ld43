@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>x = room_width/2;
 y = room_height/2-75;
-alarm[0] = 30;
+alarm[0] = 15;
 text = "ENEMY PLAYED: SUMMON MINIONS";</string>
           </argument>
         </arguments>

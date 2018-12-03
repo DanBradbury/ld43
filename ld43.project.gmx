@@ -22,6 +22,8 @@
     <sprite>sprites\s_monster3</sprite>
     <sprite>sprites\s_monster4</sprite>
     <sprite>sprites\s_blood_fx</sprite>
+    <sprite>sprites\s_dino_monster</sprite>
+    <sprite>sprites\s_ent_monster</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -65,6 +67,11 @@
     <script>scripts\scr_determine_detail_text.gml</script>
     <script>scripts\scr_reposition_hand.gml</script>
     <script>scripts\scr_display_enemy_card_play.gml</script>
+    <script>scripts\scr_destroy_minion.gml</script>
+    <script>scripts\scr_spawn_ents.gml</script>
+    <script>scripts\scr_spawn_dino.gml</script>
+    <script>scripts\scr_default_selection.gml</script>
+    <script>scripts\scr_destroy_target_minion.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_card_left_display</font>
@@ -90,11 +97,14 @@
     <object>objects\o_end_turn_button</object>
     <object>objects\o_healing_ward</object>
     <object>objects\o_bull_minion</object>
+    <object>objects\o_dino_minion</object>
+    <object>objects\o_ent_minion</object>
     <object>objects\o_friendly_minion</object>
     <object>objects\o_minion</object>
     <object>objects\o_help_page</object>
     <object>objects\o_damage_done_indicator</object>
     <object>objects\o_blood_fx</object>
+    <object>objects\o_destroy_target_prompt</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\r_start_screen</room>

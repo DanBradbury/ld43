@@ -4,7 +4,9 @@ var i = 0;
 for(i=0;i<ds_list_size(friendly_minions);i++) {
   var m = 0;
   m = ds_list_find_value(friendly_minions, i);
-  ds_list_add(attacker_list, m);
+  if(m.attack_damage != 0) {
+    ds_list_add(attacker_list, m);
+  }
   // we were triggering before which would cause all the goodies to happen in the o_minion object
   /*m.attack_triggered = true;*/
 

@@ -206,7 +206,7 @@ for(i=0;i&lt;ds_list_size(hand);i++) {
   }
 }
 // worst case we are random selecting... not the best but the worst
-var m = irandom_range(0, 2);
+var m = irandom_range(0, ds_list_size(hand)-1);
 var k = ds_list_find_value(hand, m);
 /*show_message(k);*/
 

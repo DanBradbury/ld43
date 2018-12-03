@@ -27,7 +27,7 @@ switch(argument[0]) {
   case 'Spawn Ents':
     return 12;
   case 'Spawn Dino':
-    return 12;
+    return 13;
   default:
     return 0;
 }

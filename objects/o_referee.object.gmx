@@ -46,6 +46,9 @@ current_attackers = ds_list_create();
 current_state = game_state.selecting_deck;
 current_battle_state = battle_state.not_started;
 
+selecting = false;
+selected_action = scr_default_selection; // XXX: ghetto not set
+
 max_energy = 3;
 player_energy = max_energy;
 max_hp = 30;
@@ -116,7 +119,9 @@ friendly_minion_spots = pack(
   pack(500, 650),
   pack(600, 650),
   pack(700, 650),
-  pack(800, 650)
+  pack(800, 650),
+  pack(900, 650),
+  pack(1000, 650)
 );</string>
           </argument>
         </arguments>
@@ -271,6 +276,10 @@ if(attackers_defined &amp;&amp; !attacker_triggered) {
 }
 if(keyboard_check_pressed(ord("H"))) {
   room_goto(r_help_page);
+}
+
+if(keyboard_check_pressed(ord("K"))) {
+  current_enemy.current_hp = 0;
 }
 /*if(keyboard_check_pressed(ord("R"))) {*/
   /*room_restart();*/

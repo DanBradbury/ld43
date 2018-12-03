@@ -22,6 +22,12 @@ switch(argument[0]) {
     return 2;
   case 'Poison Target':
     return 2;
+  case 'Destroy Minion':
+    return 2;
+  case 'Spawn Ents':
+    return 2;
+  case 'Spawn Dino':
+    return 3;
   default:
     return 1;
 }
