@@ -59,7 +59,11 @@ attack_anim_playing =false;
 y = original_y;
 if(enemy_unit) {
   if(ds_list_size(o_referee.friendly_minions) == 0) {
-    o_referee.current_hp -= attack_damage;
+    if(o_referee.current_shield &gt; 0) {
+      o_referee.current_shield --;
+    } else {
+      o_referee.current_hp -= attack_damage;
+    }
   } else {
     /*show_message("should be attacking other minions");*/
     var m = 0;
@@ -69,6 +73,10 @@ if(enemy_unit) {
   }
 } else {
   if(ds_list_size(o_referee.enemy_minions) == 0) {
+    if(o_referee.current_enemy.current_shield &gt; 0) {
+    } else {
+      o_referee.current_enemy.current_shield--;
+    }
     o_referee.current_enemy.current_hp -= attack_damage;
   } else {
     /*show_message("should be attacking other minions");*/

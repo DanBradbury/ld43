@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>if (live_call()) return live_result;
 deck = ds_list_create();
-ds_list_add(deck, "Spawn Minions", "Spawn Minions", "Spawn Bear", "Spawn Bear", "Spawn Minions", "Do Damage", "Do Damage");
+ds_list_add(deck, "Spawn Minions", "Spawn Minions", "Shield", "Spawn Bear", "Spawn Minions", "Do Damage", "Do Damage", "Do Damage");
 original_deck = ds_list_create();
 ds_list_copy(original_deck, deck);
 hand = ds_list_create();
@@ -49,7 +49,7 @@ ending_turn = false;
 enemy_hand = pack("Shield", "Spawn Minions", "Spawn Bear", "Shield");
 max_hp = 50;
 current_hp = max_hp;
-shield_hp = 0;
+current_shield = 0;
 poisoned = false;</string>
           </argument>
         </arguments>
@@ -255,9 +255,9 @@ draw_set_font(f_card_text_bold);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_text(room_width/2, 65, "ENEMY 1: "+string(current_hp)+"/"+string(max_hp));
-if(shield_hp &gt; 0) {
+if(current_shield &gt; 0) {
   draw_set_color(c_blue);
-  draw_text(room_width/2, 110, "SHIELD HP: "+string(shield_hp));
+  draw_text(room_width/2, 110, "SHIELD HP: "+string(current_shield));
 }
 if(poisoned) {
   draw_set_color(c_green);

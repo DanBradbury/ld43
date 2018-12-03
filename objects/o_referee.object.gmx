@@ -66,12 +66,12 @@ player_played_cards = ds_list_create();
 player_cards = ds_list_create();
 deck_choices = pack(
   pack("Spawn Minions", "Spawn Bear", "Gain Energy"),
-  pack("Block Damage", "Blast Minions", "Shield"),
+  pack("Poison Target", "Blast Minions", "Shield"),
   pack("Do Damage", "Gain Energy", "Shield"),
-  pack("Gain Energy", "Shield", "Block Damage"),
+  pack("Gain Energy", "Shield", "Poison Target"),
   pack("Do Damage", "Spawn Bear", "Gain Energy"),
-  pack("Block Damage", "Shield", "Gain Energy"),
-  pack("Do Damage", "Block Damage", "Spawn Minions")
+  pack("Poison Target", "Shield", "Gain Energy"),
+  pack("Do Damage", "Poison Target", "Spawn Minions")
 
 
 
@@ -255,6 +255,9 @@ if(attackers_defined &amp;&amp; !attacker_triggered) {
       current_enemy.turn_triggered = false;
     }
   }
+}
+if(keyboard_check_pressed(ord("H"))) {
+  room_goto(r_help_page);
 }
 /*if(keyboard_check_pressed(ord("R"))) {*/
   /*room_restart();*/

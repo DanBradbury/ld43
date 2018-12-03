@@ -14,7 +14,7 @@ with(o_referee) {
   var cs = ds_list_find_value(current_pile, s);
 
   var x_loc = 100+(ds_list_size(current_hand)*270);
-  var y_loc = room_height-250;
+  var y_loc = room_height-200;
   var script_to_run = scr_determine_card_action(cs)
   var card_obj = scr_create_card(x_loc, y_loc, cs, script_to_run);
   ds_list_add(current_hand, card_obj);

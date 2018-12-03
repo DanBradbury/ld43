@@ -34,6 +34,9 @@ click_behavior = pack(do_nothing_card_click, card_title);
 draw_scale = 2;
 image_xscale = draw_scale;
 image_yscale = draw_scale;
+original_x = x;
+original_y = y;
+hover_speed = 12;
 </string>
           </argument>
         </arguments>
@@ -70,8 +73,16 @@ if((room == 0 || !is_enemy_turn) &amp;&amp; mouse_check_button_pressed(mb_left) 
   }
 }
 // TODO: when we come back
-if(hovering) {
-  y -= 2;
+if(room != 0) {
+  if(hovering) {
+    if(y &gt;= original_y-150) {
+      y -= hover_speed;
+    }
+  } else {
+    if(y != original_y) {
+      y += hover_speed;
+    }
+  }
 }
 </string>
           </argument>
